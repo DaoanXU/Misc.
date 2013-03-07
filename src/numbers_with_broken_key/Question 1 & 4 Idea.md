@@ -12,9 +12,22 @@ Output : int result
 
 -
 
-If the broken key is not 0, Q1 and Q4 are exactly the same.
-1. Change N to 9 base number
+If the broken key is not 0, Q1 and Q4 are Nearly the same. Except what in 1
+
+1. Change N to 9 base number. (in Q4, it is N-1)
 2. Create a map from the digits of 0-8 to digits to the numbers without broken numbers.  
 For example, if 5 is broken is :
 from: 0 1 2 3 4 5 6 7 8  
-to  : 0 1 2 3 4 6 7 8 9
+to  : 0 1 2 3 4 6 7 8 9  
+3. Use the digit map in 2 to map the number get in 1, then we get the result number.
+
+-
+
+If the broken key is 0, Q1 and Q4 is excatlly the same.
+
+1. Change N to 9 base number.
+2. Seek 0 in the number, from lowest bit. Each time find a 0, do minus 10 on that bit in base 9, and replace that bit with 9.
+Continue Seeking until reaches the heights digit.  
+Example:
+100 -> (100-10 in base 9) + 9 -> 80 + 9 -> 89
+810 -> (810-10 in base 9) + 9 -> 80*10 + 9 -> (800 - 100 in base 9) + 99 -> 799
