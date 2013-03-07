@@ -30,4 +30,5 @@ If the broken key is 0, Q1 and Q4 is excatlly the same.
 Continue Seeking until reaches the heights digit.  
 Example:(use . as concatinate here, e.g. 1.3 = 13)  
 100 -> (10-1 in base 9).9 -> 8.9 -> 89  
-810 -> (81-1 in base 9).9 -> 80.9 -> (8 - 1 in base 9).99-> 799
+810 -> (81-1 in base 9).9 -> 80.9 -> (8 - 1 in base 9).99-> 799  
+This is infact map 10 to 9
