@@ -26,8 +26,8 @@ to  : 0 1 2 3 4 6 7 8 9
 If the broken key is 0, Q1 and Q4 is excatlly the same.
 
 1. Change N to 9 base number.
-2. Seek 0 in the number, from lowest bit. Each time find a 0, do minus 10 on that bit in base 9, and replace that bit with 9.
+2. Seek 0 in the number, from lowest bit. Each time find a 0, do minus 1 on that higer bit in base 9, and replace that bit with 9.
 Continue Seeking until reaches the heights digit.  
-Example:
-100 -> (100-10 in base 9) + 9 -> 80 + 9 -> 89
-810 -> (810-10 in base 9) + 9 -> 80*10 + 9 -> (800 - 100 in base 9) + 99 -> 799
+Example:(use . as concatinate here, e.g. 1.3 = 13)  
+100 -> (10-1 in base 9).9 -> 8.9 -> 89  
+810 -> (81-1 in base 9).9 -> 80.9 -> (8 - 1 in base 9).99-> 799
