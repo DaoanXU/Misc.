@@ -13,47 +13,60 @@ public class Question1 {
 
     }
 
+    private ArrayList<Integer> getNineInvertedDigits(int value) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (value == 0)
+            result.add(0);
+        else
+            while (value > 0) {
+                int digit = value % 9;
+                result.add(digit);
+                value = value / 9;
+            }
+        return result;
+    }
+
     private int findNoneZero(int n, int k) {
-        char[] arr = new char[10];
+        int[] arr = new int[10];
         int index = 0;
         for (int i = 0; i < 10; i++) {
             if (i == k)
                 continue;
-            arr[index] = (char) (i + '0');
+            arr[index] = i;
             index++;
         }
 
-        String nineBase = new NaturalNumberBase(9, n).getLiteral();
-        StringBuffer result = new StringBuffer();
-        for (int i = 0; i < nineBase.length(); i++) {
-            index = nineBase.charAt(i) - '0';
-            result.append(arr[index]);
+        ArrayList<Integer> nineBase = getNineInvertedDigits(n);
+        int result = 0;
+        for (int i = nineBase.size() -1 ; i > -1; i--) {
+            index = nineBase.get(i);
+            result = result * 10 + arr[index];
         }
 
-        return Integer.parseInt(result.toString());
+        return result;
     }
 
     private int findZero(int n, int k) {
-        ArrayList<Integer> nineBase = new NaturalNumberBase(9, n).getCopyInvertedLigits();
+        ArrayList<Integer> nineBase = getNineInvertedDigits(n);
         for (int i = 0; i < nineBase.size(); i++) {
             int current = nineBase.get(i);
-            
-            if(i == nineBase.size() - 1 && current == 0)
+
+            if (i == nineBase.size() - 1 && current == 0)
                 break;
-            
-            if(current == -1){
+
+            if (current == -1) {
                 nineBase.set(i, 8);
                 nineBase.set(i + 1, nineBase.get(i + 1) - 1);
                 continue;
             }
-            
+
             if (nineBase.get(i) == 0) {
                 nineBase.set(i, 9);
                 nineBase.set(i + 1, nineBase.get(i + 1) - 1);
             }
         }
         int reslut = 0;
-        for (int i = nineBase.size() - 1; i > -1 ; i--) {
+        for (int i = nineBase.size() - 1; i > -1; i--) {
             reslut = reslut * 10 + nineBase.get(i);
         }
 
