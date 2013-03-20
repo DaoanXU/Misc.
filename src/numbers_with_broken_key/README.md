@@ -36,3 +36,8 @@ Output : int result
 Question 4 & 5
 -
 Do 1 and 2 in the case that lable starts with 0 (1 if 0 is broken)
+
+---
+
+Only Solution to Question 1 is given. The rest are extremly easy
+
